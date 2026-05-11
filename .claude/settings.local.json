@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:ansan.sbsart.com)",
-      "WebFetch(domain:www.sbsart.com)"
+      "WebFetch(domain:www.sbsart.com)",
+      "Bash(awk -F: '$1 >= 3531 && $1 <= 3640')"
     ]
   }
 }
