@@ -726,9 +726,18 @@
       }
 
       .prog-detail-btn { display: block; width: 100%; margin-top: 14px; padding: 7px 0; background: transparent; border: 1px solid var(--border); border-radius: 20px; color: var(--cyan); font-size: 0.73rem; font-weight: 700; cursor: pointer; font-family: inherit; transition: 0.2s; }
-      .prog-detail-btn:hover, .prog-detail-btn.open { background: rgba(0,212,255,0.08); border-color: var(--cyan); }
-      .prog-detail { display: none; margin-top: 12px; border-top: 1px solid var(--border); padding-top: 10px; }
-      .prog-detail.open { display: block; }
+      .prog-detail-btn:hover { background: rgba(0,212,255,0.08); border-color: var(--cyan); }
+      .prog-detail { display: none; }
+
+      /* ── Course Modal ── */
+      .course-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.72); z-index: 9000; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(4px); }
+      .course-modal-overlay.open { display: flex; }
+      .course-modal-box { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); width: 100%; max-width: 580px; max-height: 82vh; overflow-y: auto; padding: 36px 30px 28px; position: relative; box-shadow: 0 24px 64px rgba(0,0,0,0.55); animation: cModalIn 0.2s ease; }
+      @keyframes cModalIn { from { opacity:0; transform: translateY(18px) scale(0.96); } to { opacity:1; transform: none; } }
+      .course-modal-close { position: absolute; top: 14px; right: 16px; background: none; border: none; color: var(--gray); font-size: 1.3rem; cursor: pointer; line-height: 1; padding: 4px 8px; border-radius: 6px; transition: 0.15s; }
+      .course-modal-close:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+      .course-modal-dept { font-size: 0.7rem; font-weight: 700; color: var(--cyan); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+      .course-modal-title { font-size: 1.12rem; font-weight: 800; color: var(--white); margin-bottom: 22px; line-height: 1.35; }
 
       /* ── ROADMAP ── */
       .roadmap-steps {
@@ -2923,7 +2932,7 @@
             <h3 class="prog-name">발상과 표현</h3>
             <p class="prog-desc">점·선·면 평면구성부터 연출·아이디어 스케치까지 조형 기초 훈련</p>
             <span class="prog-tag">기초</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>평면구성 기초 (점·선·면)</td></tr><tr><td>2주</td><td>입체구성 – 시점·비율·명암</td></tr><tr><td>3주</td><td>다양한 사물 질감묘사 및 컬러 작업</td></tr><tr><td>4주</td><td>연출·아이디어 스케치 및 초안 작업</td></tr></table></div>
           </div>
           <div class="prog-card" data-cat="dept0">
@@ -2931,7 +2940,7 @@
             <h3 class="prog-name">얼굴소묘</h3>
             <p class="prog-desc">펜슬 기초와 얼굴 폴리곤 구조 이해 및 드로잉 실습</p>
             <span class="prog-tag">기초</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>펜슬 사용법 및 기본도형 묘사</td></tr><tr><td>2주</td><td>질감과 명암 표현</td></tr><tr><td>3주</td><td>얼굴 폴리곤화로 구조 학습</td></tr><tr><td>4주</td><td>얼굴 구성요소 이해 후 드로잉</td></tr></table></div>
           </div>
           <div class="prog-card" data-cat="dept0">
@@ -2939,7 +2948,7 @@
             <h3 class="prog-name">색채학</h3>
             <p class="prog-desc">색 지각 원리·대비·배색·이미지 스케일 이론과 분야별 색채 계획</p>
             <span class="prog-tag">이론</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>색 지각 원리 및 기초 이론</td></tr><tr><td>2주</td><td>색의 대비·동화와 공감각</td></tr><tr><td>3주</td><td>배색 및 이미지 스케일 분석</td></tr><tr><td>4주</td><td>인테리어·패션·광고 색채 계획 실습</td></tr></table></div>
           </div>
           <div class="prog-card" data-cat="dept0">
@@ -2947,7 +2956,7 @@
             <h3 class="prog-name">해부학</h3>
             <p class="prog-desc">두개골부터 전신 뼈·근육 구조 이해 및 동세·비율 표현</p>
             <span class="prog-tag">기초</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>두개골 및 얼굴 구조</td></tr><tr><td>2주</td><td>팔·상체 뼈와 근육</td></tr><tr><td>3주</td><td>하체·골반 뼈와 근육</td></tr><tr><td>4주</td><td>전신 동세 표현 및 비율 연습</td></tr></table></div>
           </div>
           <div class="prog-card" data-cat="dept0">
@@ -2955,7 +2964,7 @@
             <h3 class="prog-name">컬러리스트 실기</h3>
             <p class="prog-desc">조색·명도·채도·감성 배색 실전 – 산업기사/기사 자격증 대비</p>
             <span class="prog-tag">자격증</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>기본 12색 물감 특징 및 보색·조색 실습</td></tr><tr><td>2주</td><td>명도·채도 이해 및 톤별 조색</td></tr><tr><td>3주</td><td>3속성 테스트 및 Lab 색 오차 보정</td></tr><tr><td>4주</td><td>감성 배색 테스트 및 모의 시험</td></tr></table></div>
           </div>
 
@@ -2965,7 +2974,7 @@
             <h3 class="prog-name">디지털드로잉 (6개월)</h3>
             <p class="prog-desc">타블렛 기초부터 캐릭터 채색·배경·포트폴리오 완성까지 6개월 과정</p>
             <span class="prog-tag">포트폴리오</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>개월</th><th>주요 내용</th></tr><tr><td>1개월</td><td>타블렛 기초 / 인체 도형화 / 손발</td></tr><tr><td>2개월</td><td>두개골 각도 / 머리카락 / 동세·앵글</td></tr><tr><td>3개월</td><td>수채식 채색법 / 광원 이해 / 캐릭터 채색</td></tr><tr><td>4개월</td><td>글레이징·셀식 채색 / 캐릭터 컨셉 제작</td></tr><tr><td>5개월</td><td>투시도 이해 / 자연배경 스케치 및 채색</td></tr><tr><td>6개월</td><td>포트폴리오 컨셉·캐릭터 설정·제작·완성</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept1">
@@ -2973,7 +2982,7 @@
             <h3 class="prog-name">웹툰 (6개월)</h3>
             <p class="prog-desc">클립스튜디오로 캐릭터·콘티·1화 완성까지 6개월 집중 과정</p>
             <span class="prog-tag">포트폴리오</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>개월</th><th>주요 내용</th></tr><tr><td>1개월</td><td>클립스튜디오 기능 / 인체 구조 / 동세</td></tr><tr><td>2개월</td><td>투시법 / 앵글 구도 / 명암·채색 기법</td></tr><tr><td>3개월</td><td>캐릭터 전신 채색 / 시나리오 기획</td></tr><tr><td>4개월</td><td>캐릭터 시트 / 콘티 제작</td></tr><tr><td>5~6개월</td><td>스케치·선화·채색·배경·대사 작업 – 1화 완성</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept1">
@@ -2981,7 +2990,7 @@
             <h3 class="prog-name">AI 아트웍</h3>
             <p class="prog-desc">Stable Diffusion·LoRA·ControlNet 활용 AI 기반 이미지 창작</p>
             <span class="prog-tag">AI</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>Stable Diffusion + ComfyUI 기초</td></tr><tr><td>2주</td><td>LoRA·ControlNet·프롬프트 엔지니어링</td></tr><tr><td>3주</td><td>복합 워크플로우 / 인페인트·아웃페인팅</td></tr><tr><td>4주</td><td>분야별 실무 워크플로우 / 포트폴리오 완성</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept1">
@@ -2989,7 +2998,7 @@
             <h3 class="prog-name">모션디드 (6개월)</h3>
             <p class="prog-desc">애니메이션 12법칙부터 2D 카메라 연출·숏츠 포트폴리오까지</p>
             <span class="prog-tag">모션</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>월차</th><th>주요 내용</th></tr><tr><td>1~2</td><td>애니메이션 12법칙 / Squash·Stretch / 속도감</td></tr><tr><td>3~4</td><td>키프레임 활용 / 루프 애니메이션 제작</td></tr><tr><td>5~6</td><td>2D카메라 연출 / 숏츠 애니메이션 포트폴리오</td></tr></table></div>
           </div>
 
@@ -2999,7 +3008,7 @@
             <h3 class="prog-name">포토샵</h3>
             <p class="prog-desc">레이어·마스크·펜툴·필터·블렌드 모드 포토샵 실무 기초</p>
             <span class="prog-tag">기초</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>인터페이스 / 레이어 / 선택 툴·마스크</td></tr><tr><td>2주</td><td>색상·패턴·그라데이션·변형</td></tr><tr><td>3주</td><td>클리핑 마스크 / 브러시 / 펜툴</td></tr><tr><td>4주</td><td>이미지 보정 / 블렌드 모드 / 필터·레이어 스타일</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept2">
@@ -3007,7 +3016,7 @@
             <h3 class="prog-name">포토웍스 (포토샵 심화)</h3>
             <p class="prog-desc">콜라주·비현실 합성 포스터·브러시 질감·찢어짐 효과 제작</p>
             <span class="prog-tag">심화</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>필터·마스크·조정 레이어 실습</td></tr><tr><td>2주</td><td>콜라주 포스터 제작</td></tr><tr><td>3주</td><td>비현실적 합성 이미지 표현</td></tr><tr><td>4주</td><td>이면공존 포스터 / 브러시 질감·찢어짐 효과</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept2">
@@ -3015,7 +3024,7 @@
             <h3 class="prog-name">일러스트</h3>
             <p class="prog-desc">도형·펜툴·패턴·3D 효과 벡터 그래픽 기초 완성</p>
             <span class="prog-tag">기초</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>인터페이스 / 선택 툴 / 기본 도형·변형</td></tr><tr><td>2주</td><td>정렬·Pathfinder / 펜툴 / 타입 디자인</td></tr><tr><td>3주</td><td>브러시 / 마스크 / 블렌드 모드 / 패턴</td></tr><tr><td>4주</td><td>심볼 / 블렌드 툴 / 3D 효과</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept2">
@@ -3023,7 +3032,7 @@
             <h3 class="prog-name">디일러 (일러스트 심화)</h3>
             <p class="prog-desc">마스크 합성·패턴·아이소메트릭 3D 심화 실습</p>
             <span class="prog-tag">심화</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>Shape Layer / 아이콘 제작 복습</td></tr><tr><td>2주</td><td>마스크 합성·효과로 패턴 제작</td></tr><tr><td>3주</td><td>불투명 마스크 / 질감 표현</td></tr><tr><td>4주</td><td>아이소메트릭 3D 효과</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept2">
@@ -3031,7 +3040,7 @@
             <h3 class="prog-name">인디자인</h3>
             <p class="prog-desc">잡지·전자책·카탈로그 편집 레이아웃 실무 디자인</p>
             <span class="prog-tag">실무</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>단계</th><th>주요 내용</th></tr><tr><td>1단계</td><td>인터페이스 / 스타일 / 잡지·전자책 디자인</td></tr><tr><td>2단계</td><td>고급 그리드 / 카탈로그·포스터·ebook 제작</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept2">
@@ -3039,7 +3048,7 @@
             <h3 class="prog-name">인포그래픽</h3>
             <p class="prog-desc">픽토그램·차트·데이터 시각화 인포그래픽 제작 실습</p>
             <span class="prog-tag">실무</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>인포그래픽 유형 / 픽토그램 제작</td></tr><tr><td>2주</td><td>차트·이미지·지도 활용 인포그래픽</td></tr><tr><td>3주</td><td>데이터 시각화 / 자유 주제 기획</td></tr><tr><td>4주</td><td>개인 작업 완성 및 피드백</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept2">
@@ -3047,7 +3056,7 @@
             <h3 class="prog-name">플랫모션 (포토샵 애니메이션)</h3>
             <p class="prog-desc">GIF·이모티콘·캐릭터 움직임·감정 표현 애니메이션 제작</p>
             <span class="prog-tag">모션</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>GIF 제작 / 도형 모션 기초</td></tr><tr><td>2주</td><td>타임라인 기능 / 응용 예제</td></tr><tr><td>3주</td><td>캐릭터 움직임·감정 표현</td></tr><tr><td>4주</td><td>이모티콘 개인 작업 완성</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept2">
@@ -3055,7 +3064,7 @@
             <h3 class="prog-name">그래픽 아트웍</h3>
             <p class="prog-desc">이미지 합성·마이크로월드·물·공간 합성 개인 아트워크 완성</p>
             <span class="prog-tag">심화</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>이미지 합성 / 아이소메트릭 큐브</td></tr><tr><td>2주</td><td>마이크로월드 합성</td></tr><tr><td>3주</td><td>물·공간 합성 이미지</td></tr><tr><td>4주</td><td>개인 아트워크 기획 및 완성</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept2">
@@ -3063,7 +3072,7 @@
             <h3 class="prog-name">브랜딩디자인</h3>
             <p class="prog-desc">로고·가이드라인·비즈니스 서식·패키지 디자인 실무 제작</p>
             <span class="prog-tag">실무</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>브랜딩 기획 / 로고 이론·스케치</td></tr><tr><td>2주</td><td>로고 그래픽화 / 로고 가이드 제작</td></tr><tr><td>3주</td><td>비즈니스 서식 / 광고·패키지 디자인</td></tr><tr><td>4주</td><td>목업으로 완성도 높이기 및 피드백</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept2">
@@ -3071,7 +3080,7 @@
             <h3 class="prog-name">UX/UI</h3>
             <p class="prog-desc">와이어프레임·피그마·이커머스 리디자인·반응형 웹 UI 디자인</p>
             <span class="prog-tag">실무</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>단계</th><th>주요 내용</th></tr><tr><td>UX/UI 1</td><td>웹 구조 이해 / 와이어프레임 / 피그마 기초 / 개인 프로젝트</td></tr><tr><td>UX/UI 2</td><td>이커머스 리디자인 / 기업 웹 UI / 소셜 미디어 / 반응형 웹</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept2">
@@ -3079,7 +3088,7 @@
             <h3 class="prog-name">AI 시각편집</h3>
             <p class="prog-desc">Midjourney·Runway·Krea AI 활용 키비주얼 제안서 제작</p>
             <span class="prog-tag">AI</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>무드보드 제작 / AI 브랜드 시각화</td></tr><tr><td>2주</td><td>ChatGPT·Midjourney·Runway 활용 콘텐츠 제작</td></tr><tr><td>3주</td><td>Whisk·Krea AI 제품·모델 생성 / 레이아웃</td></tr><tr><td>4주</td><td>Gamma·Canva로 키비주얼 제안서 완성</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept2">
@@ -3087,7 +3096,7 @@
             <h3 class="prog-name">편집 포트폴리오</h3>
             <p class="prog-desc">프로젝트 선별·레이아웃·통일성 검수·최종 완성</p>
             <span class="prog-tag">포트폴리오</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>포트폴리오 방향 설정 / 프로젝트 선별</td></tr><tr><td>2주</td><td>프로젝트 피드백 및 마무리</td></tr><tr><td>3주</td><td>컨셉·목차·레이아웃 제작</td></tr><tr><td>4주</td><td>통일성 검수 및 최종 완성</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept2">
@@ -3095,7 +3104,7 @@
             <h3 class="prog-name">GTQ (포토샵 1급)</h3>
             <p class="prog-desc">포토샵 고급 툴·필터·마스크·기출문제 A·B형 풀이 자격 대비</p>
             <span class="prog-tag">자격증</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>고급 툴 / 펜툴 / 필터·마스크</td></tr><tr><td>2주</td><td>1·2작업 분석 – 이미지 제작·색상 조절</td></tr><tr><td>3주</td><td>3·4작업 분석 – 레이어 편집·웹 페이지 제작</td></tr><tr><td>4주</td><td>기출문제 A·B형 풀이</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept2">
@@ -3103,7 +3112,7 @@
             <h3 class="prog-name">GTQi (일러스트 1급)</h3>
             <p class="prog-desc">일러스트 전 기능·BI/CI·광고디자인·기출문제 풀이 자격 대비</p>
             <span class="prog-tag">자격증</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>기본·추가 도구 전반 학습</td></tr><tr><td>2주</td><td>1·2작업 – BI/CI / 패키지·비즈니스 디자인</td></tr><tr><td>3주</td><td>3작업 – 광고디자인</td></tr><tr><td>4주</td><td>기출문제 A·B형 풀이</td></tr></table></div>
           </div>
 
@@ -3113,7 +3122,7 @@
             <h3 class="prog-name">프리미어 프로</h3>
             <p class="prog-desc">컷편집·자막·색보정·렌더링 영상 편집 기초 실무</p>
             <span class="prog-tag">기초</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>단계</th><th>주요 내용</th></tr><tr><td>기초</td><td>기초 컷편집</td></tr><tr><td>중급</td><td>자막 제작</td></tr><tr><td>심화</td><td>색보정 / 렌더링</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept3">
@@ -3121,7 +3130,7 @@
             <h3 class="prog-name">애프터이펙트</h3>
             <p class="prog-desc">키프레임·모션 효과·인트로·아웃트로·트래킹 모션그래픽</p>
             <span class="prog-tag">기초</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>단계</th><th>주요 내용</th></tr><tr><td>기초</td><td>키프레임</td></tr><tr><td>중급</td><td>모션 효과 / 인트로·아웃트로</td></tr><tr><td>심화</td><td>트래킹</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept3">
@@ -3129,7 +3138,7 @@
             <h3 class="prog-name">C4D (Cinema 4D)</h3>
             <p class="prog-desc">기초 모델링·텍스처링·조명·렌더링·Cosmetic 합성</p>
             <span class="prog-tag">기초</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>단계</th><th>주요 내용</th></tr><tr><td>기초</td><td>기초 모델링</td></tr><tr><td>중급</td><td>텍스처링·조명</td></tr><tr><td>심화</td><td>렌더링 / Cosmetic 합성</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept3">
@@ -3137,7 +3146,7 @@
             <h3 class="prog-name">Advance C4D</h3>
             <p class="prog-desc">Spline·Cloner·파티클·캐릭터 모델링·리깅·애니메이션 심화</p>
             <span class="prog-tag">심화</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>단계</th><th>주요 내용</th></tr><tr><td>Advance 1</td><td>기초 모델링·Spline·Cloner / 파티클·다이나믹</td></tr><tr><td>Advance 2</td><td>Cosmetic 영상 합성 / 섭스텐스 페인터 텍스처링</td></tr><tr><td>Advance 3</td><td>캐릭터 전신 모델링 / 리깅 / 캐릭터 애니메이션</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept3">
@@ -3145,7 +3154,7 @@
             <h3 class="prog-name">마야</h3>
             <p class="prog-desc">인터페이스·모델링·리깅·렌더링 Maya 기초 완성</p>
             <span class="prog-tag">기초</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>단계</th><th>주요 내용</th></tr><tr><td>기초</td><td>인터페이스</td></tr><tr><td>중급</td><td>모델링 / 리깅</td></tr><tr><td>심화</td><td>렌더링</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept3">
@@ -3153,7 +3162,7 @@
             <h3 class="prog-name">마야 포트폴리오</h3>
             <p class="prog-desc">Maya 기반 포트폴리오 기획·제작·완성 프로젝트</p>
             <span class="prog-tag">포트폴리오</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>단계</th><th>주요 내용</th></tr><tr><td>제작</td><td>포트폴리오 기획 및 제작</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept3">
@@ -3161,7 +3170,7 @@
             <h3 class="prog-name">AI크리에이터 모션</h3>
             <p class="prog-desc">GPT·Sora·런웨이 활용 AI 광고 영상·립싱크·합성 제작</p>
             <span class="prog-tag">AI</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>GPT·Sora AI 사용법 / 로고·합성 영상 생성</td></tr><tr><td>2주</td><td>런웨이 기초 / 광고 영상 생성·합성</td></tr><tr><td>3주</td><td>AI 립싱크 영상 / 에펙 합성</td></tr><tr><td>4주</td><td>타이틀 제작 / C4D·Null 활용</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept3">
@@ -3169,7 +3178,7 @@
             <h3 class="prog-name">AI크리에이터 유튜브</h3>
             <p class="prog-desc">CapCut·Vrew 편집·숏폼·롱폼·채널 운영 전략 실습</p>
             <span class="prog-tag">AI</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>유튜브 수익 모델 / 채널 기획 / 저작권</td></tr><tr><td>2주</td><td>CapCut·Vrew 편집툴 / 숏폼 제작</td></tr><tr><td>3주</td><td>롱폼 콘텐츠 제작 (브이로그·미니어쳐)</td></tr><tr><td>4주</td><td>정보 전달형 영상 / 채널 관리·퍼블리싱 전략</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept3">
@@ -3177,7 +3186,7 @@
             <h3 class="prog-name">유튜브 크리에이터</h3>
             <p class="prog-desc">채널 기획·섬네일·컷편집·에프터이펙트 영상 제작 통합 과정</p>
             <span class="prog-tag">실무</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>단계</th><th>주요 내용</th></tr><tr><td>기초</td><td>채널 기획 / 포토샵 섬네일 / 채널 아트</td></tr><tr><td>입문</td><td>프리미어 컷편집 / 자막 / 색보정 / 렌더링</td></tr><tr><td>심화</td><td>에프터이펙트 기초 / 인트로·아웃트로 / 트래킹</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept3">
@@ -3185,7 +3194,7 @@
             <h3 class="prog-name">모션 포트폴리오</h3>
             <p class="prog-desc">영상 기획·3D 모델링·애니메이션·렌더링 합성 완성</p>
             <span class="prog-tag">포트폴리오</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>단계</th><th>주요 내용</th></tr><tr><td>PO1</td><td>영상 기획 / 캐릭터 디자인·모델링·리깅</td></tr><tr><td>PO2</td><td>에셋·스타일 프레임 / 텍스처링·라이팅</td></tr><tr><td>PO3</td><td>애니메이션 제작 / 렌더링 및 합성</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept3">
@@ -3193,7 +3202,7 @@
             <h3 class="prog-name">모션 광고 콘텐츠 포트폴리오</h3>
             <p class="prog-desc">스타일 프레임부터 광고 영상 보정·합성·최종 렌더링까지</p>
             <span class="prog-tag">포트폴리오</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>OT / 스타일 프레임 제작</td></tr><tr><td>2주</td><td>영상 제작</td></tr><tr><td>3주</td><td>영상 보정 및 합성</td></tr><tr><td>4주</td><td>렌더링 및 마무리</td></tr></table></div>
           </div>
 
@@ -3203,7 +3212,7 @@
             <h3 class="prog-name">컴퓨터 기초</h3>
             <p class="prog-desc">윈도우 기본·인터넷 활용·문서 작성 입문 과정</p>
             <span class="prog-tag">기초</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>단계</th><th>주요 내용</th></tr><tr><td>기초</td><td>윈도우 기본 → 인터넷 활용 → 문서 작성 기초</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept4">
@@ -3211,7 +3220,7 @@
             <h3 class="prog-name">실전 OA</h3>
             <p class="prog-desc">워드·엑셀·파워포인트 실무 활용 집중 훈련</p>
             <span class="prog-tag">실무</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>단계</th><th>주요 내용</th></tr><tr><td>실무</td><td>워드·엑셀·파워포인트 실무 활용</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept4">
@@ -3219,7 +3228,7 @@
             <h3 class="prog-name">MOS 자격증 (1개월)</h3>
             <p class="prog-desc">파워포인트·엑세스·MS워드·엑셀 MOS 자격증 단기 취득</p>
             <span class="prog-tag">자격증</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>파워포인트 전 챕터 / 엑세스 기초</td></tr><tr><td>2주</td><td>엑세스 심화(쿼리·폼·보고서) / MS워드</td></tr><tr><td>3주</td><td>MS워드 심화 / 엑셀 기초</td></tr><tr><td>4주</td><td>엑셀 함수·피벗 / 실전 모의고사</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept4">
@@ -3227,7 +3236,7 @@
             <h3 class="prog-name">컴퓨터활용능력 1급 실기</h3>
             <p class="prog-desc">고급 함수·차트·매크로·프로시저 컴활 1급 실기 집중 대비</p>
             <span class="prog-tag">자격증</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>기본작업 (고급필터·조건부서식) / DB·수학·통계 함수</td></tr><tr><td>2주</td><td>찾기·참조 / 날짜·텍스트·논리·재무 함수</td></tr><tr><td>3주</td><td>정보·배열·사용자정의 함수 / 프로시저</td></tr><tr><td>4주</td><td>차트 / 매크로 / 기출문제 풀이</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept4">
@@ -3235,7 +3244,7 @@
             <h3 class="prog-name">그래픽스 운용기능사</h3>
             <p class="prog-desc">포토샵·일러스트 기반 그래픽스 운용기능사 자격 대비</p>
             <span class="prog-tag">자격증</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>단계</th><th>주요 내용</th></tr><tr><td>대비</td><td>포토샵·일러스트 기반 자격증 대비</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept4">
@@ -3243,7 +3252,7 @@
             <h3 class="prog-name">전산회계</h3>
             <p class="prog-desc">회계 이론 + KcLep 프로그램 실습 자격증 취득</p>
             <span class="prog-tag">자격증</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>단계</th><th>주요 내용</th></tr><tr><td>실습</td><td>회계 이론 + KcLep 프로그램 실습</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept4">
@@ -3251,7 +3260,7 @@
             <h3 class="prog-name">전산세무</h3>
             <p class="prog-desc">세무 이론 + KcLep 프로그램 실습 자격증 취득</p>
             <span class="prog-tag">자격증</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>단계</th><th>주요 내용</th></tr><tr><td>실습</td><td>세무 이론 + KcLep 프로그램 실습</td></tr></table></div>
           </div>
 
@@ -3261,7 +3270,7 @@
             <h3 class="prog-name">웹 기초</h3>
             <p class="prog-desc">HTML·CSS 기초 웹 퍼블리싱 입문 과정</p>
             <span class="prog-tag">기초</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>단계</th><th>주요 내용</th></tr><tr><td>기초</td><td>HTML·CSS 기초</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept5">
@@ -3269,7 +3278,7 @@
             <h3 class="prog-name">웹디자인개발기능사</h3>
             <p class="prog-desc">HTML·CSS·JavaScript 기반 웹디자인개발기능사 자격 대비</p>
             <span class="prog-tag">자격증</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>단계</th><th>주요 내용</th></tr><tr><td>대비</td><td>HTML·CSS·JavaScript 기반 자격증 대비</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept5">
@@ -3277,7 +3286,7 @@
             <h3 class="prog-name">파이썬</h3>
             <p class="prog-desc">기초 문법·자료구조·함수·모듈·프로젝트 실습</p>
             <span class="prog-tag">기초</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>단계</th><th>주요 내용</th></tr><tr><td>기초</td><td>기초 문법 / 자료구조</td></tr><tr><td>심화</td><td>함수·모듈 / 프로젝트</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept5">
@@ -3285,7 +3294,7 @@
             <h3 class="prog-name">백엔드 마스터 과정</h3>
             <p class="prog-desc">C·Java·DB·JSP·스프링부트·Docker 전 과정 8단계 집중</p>
             <span class="prog-tag">집중과정</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>단계</th><th>강좌</th><th>주요 내용</th></tr><tr><td>1단계</td><td>C언어</td><td>기초 문법 / 포인터 / 자료구조</td></tr><tr><td>2·3단계</td><td>자바</td><td>OOP / 컬렉션 / 예외처리 / GUI</td></tr><tr><td>4단계</td><td>DB</td><td>SQL / 데이터 모델링 / 오라클</td></tr><tr><td>5단계</td><td>JSP</td><td>서블릿 / MVC 패턴 / 세션</td></tr><tr><td>6·7단계</td><td>스프링부트</td><td>REST API / JPA / 시큐리티</td></tr><tr><td>8단계</td><td>Docker·CentOS 9</td><td>컨테이너 / 리눅스 서버 환경</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept5">
@@ -3293,7 +3302,7 @@
             <h3 class="prog-name">웹 프로젝트</h3>
             <p class="prog-desc">팀 기획·개발·발표 실전 웹 프로젝트 과정</p>
             <span class="prog-tag">프로젝트</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>단계</th><th>주요 내용</th></tr><tr><td>프로젝트</td><td>팀 프로젝트 기획·개발·발표</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept5">
@@ -3301,7 +3310,7 @@
             <h3 class="prog-name">리액트</h3>
             <p class="prog-desc">컴포넌트·Hooks·상태관리·API 연동 React 개발</p>
             <span class="prog-tag">심화</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>단계</th><th>주요 내용</th></tr><tr><td>기초</td><td>컴포넌트 / Hooks</td></tr><tr><td>심화</td><td>상태관리 / API 연동</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept5">
@@ -3309,7 +3318,7 @@
             <h3 class="prog-name">안드로이드</h3>
             <p class="prog-desc">Kotlin 기초·UI·데이터·앱 배포 안드로이드 개발</p>
             <span class="prog-tag">심화</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>단계</th><th>주요 내용</th></tr><tr><td>기초</td><td>Kotlin 기초 / UI</td></tr><tr><td>심화</td><td>데이터 / 앱 배포</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept5">
@@ -3317,7 +3326,7 @@
             <h3 class="prog-name">AI 웹</h3>
             <p class="prog-desc">AI API 연동 웹 서비스 개발 실무 과정</p>
             <span class="prog-tag">AI</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>단계</th><th>주요 내용</th></tr><tr><td>개발</td><td>AI API 연동 웹 서비스 개발</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept5">
@@ -3325,7 +3334,7 @@
             <h3 class="prog-name">웹 포트폴리오</h3>
             <p class="prog-desc">개인 포트폴리오 사이트 기획·제작·배포</p>
             <span class="prog-tag">포트폴리오</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>단계</th><th>주요 내용</th></tr><tr><td>제작</td><td>개인 포트폴리오 사이트 기획·제작·배포</td></tr></table></div>
           </div>
 
@@ -3335,7 +3344,7 @@
             <h3 class="prog-name">스케치 (인테리어 손 스케치)</h3>
             <p class="prog-desc">선 연습·소점·건축·실내 공간 손 스케치 표현</p>
             <span class="prog-tag">기초</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>선 연습 / 소점 이해</td></tr><tr><td>2주</td><td>소점으로 조명·가구·식물 그리기</td></tr><tr><td>3주</td><td>건축·실내 공간 표현</td></tr><tr><td>4주</td><td>건물·인테리어 이미지 보고 스케치</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept6">
@@ -3343,7 +3352,7 @@
             <h3 class="prog-name">캐드 1</h3>
             <p class="prog-desc">AutoCAD 기본 툴·LINE·CIRCLE·POLYGON 기초 완성</p>
             <span class="prog-tag">기초</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>인터페이스 / LINE·MOVE·COPY</td></tr><tr><td>2주</td><td>CIRCLE·ROTATE·TRIM·EXTEND</td></tr><tr><td>3주</td><td>POLYGON·ARC·ELLIPSE</td></tr><tr><td>4주</td><td>MIRROR·FILLET·CHAMFER·ARRAY</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept6">
@@ -3351,7 +3360,7 @@
             <h3 class="prog-name">캐드 2</h3>
             <p class="prog-desc">POLYLINE·BLOCK·LAYER·치수·출력·도면 작도 심화</p>
             <span class="prog-tag">심화</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>POLYLINE·SPLINE·BREAK·SCALE</td></tr><tr><td>2주</td><td>ALIGN·BLOCK·TEXT·HATCH</td></tr><tr><td>3주</td><td>LAYER·DIMSTYLE·치수·출력</td></tr><tr><td>4주</td><td>투시도·건축도면·기계도면 작도</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept6">
@@ -3359,7 +3368,7 @@
             <h3 class="prog-name">CAT 2급 (AutoCAD 자격증)</h3>
             <p class="prog-desc">레이어·치수·3뷰 도면·기출문제 AutoCAD 자격증 집중 대비</p>
             <span class="prog-tag">자격증</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>레이어·문자·치수 스타일 / 3뷰 도면 원리</td></tr><tr><td>2주</td><td>치수 표현 / 도면명 삽입</td></tr><tr><td>3주</td><td>기출문제 풀이 / 레이아웃·출력</td></tr><tr><td>4주</td><td>기출문제 종합 풀이 / 실격 사항 숙지</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept6">
@@ -3367,7 +3376,7 @@
             <h3 class="prog-name">스케치업 1</h3>
             <p class="prog-desc">기본 툴·GROUP·재질·스타일·3D Warehouse 활용 기초</p>
             <span class="prog-tag">기초</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>인터페이스 및 기본 툴</td></tr><tr><td>2주</td><td>GROUP·COMPONENT / 가구 모델링</td></tr><tr><td>3주</td><td>재질·스타일·장면</td></tr><tr><td>4주</td><td>도면 불러오기 / 3D Warehouse 활용</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept6">
@@ -3375,7 +3384,7 @@
             <h3 class="prog-name">스케치업 2 (Enscape 렌더링)</h3>
             <p class="prog-desc">Enscape 조명·재질·Visual Settings·렌더링·동영상 출력</p>
             <span class="prog-tag">심화</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>Enscape 실행 및 기능 조작</td></tr><tr><td>2주</td><td>라이브러리·재질 에디터·조명 설정</td></tr><tr><td>3주</td><td>Visual Settings / 렌더링·동영상 출력</td></tr><tr><td>4주</td><td>건축 모델링 / 루비(Ruby) 활용</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept6">
@@ -3383,7 +3392,7 @@
             <h3 class="prog-name">스케치업 3 (공간 포트폴리오)</h3>
             <p class="prog-desc">공간 컨셉부터 렌더링·포토샵 리터치 포트폴리오 완성</p>
             <span class="prog-tag">포트폴리오</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>공간 컨셉 설정</td></tr><tr><td>2주</td><td>벽·바닥·천장 모델링 및 재질</td></tr><tr><td>3주</td><td>가구·조명 설치 / 배경 설정</td></tr><tr><td>4주</td><td>구도 설정 / 렌더링 / 포토샵 리터치</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept6">
@@ -3391,7 +3400,7 @@
             <h3 class="prog-name">에이콘(Akon) 에셋 판매</h3>
             <p class="prog-desc">에셋 제작·업로드·태그·마케팅 전략 수익화 실전 과정</p>
             <span class="prog-tag">실무</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>판매 기준·업로드 방법·저작권 이해</td></tr><tr><td>2주</td><td>경쟁력 있는 에셋 제작 (은선·재질·GIF)</td></tr><tr><td>3주</td><td>인기 에셋 유형 분석 / 모델링·재질 작업</td></tr><tr><td>4주</td><td>판매글 작성·태그·마케팅 전략</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept6">
@@ -3399,7 +3408,7 @@
             <h3 class="prog-name">3DS Max 1</h3>
             <p class="prog-desc">기본 도형·2D·3D 모델링·캐릭터 제작 기초</p>
             <span class="prog-tag">기초</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>인터페이스 / 기본 도형·변형·스냅</td></tr><tr><td>2주</td><td>2D·3D 도형 / 캐릭터 모델링</td></tr><tr><td>3주</td><td>Edit Spline / 프레임 가구 모델링</td></tr><tr><td>4주</td><td>Extrude·Lathe·Loft·FFD / 소파·와인잔 모델링</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept6">
@@ -3407,7 +3416,7 @@
             <h3 class="prog-name">3DS Max 2</h3>
             <p class="prog-desc">Edit Poly·V-ray 재질·Cloth·오피스텔 모델링·렌더링 심화</p>
             <span class="prog-tag">심화</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>Edit Poly / Symmetry / Vray 자연광</td></tr><tr><td>2주</td><td>Bend·Turbosmooth / V-ray 재질·Lattice</td></tr><tr><td>3주</td><td>Cloth (천 모델링) / 오피스텔 전체 모델링</td></tr><tr><td>4주</td><td>Vray HDR·IES 조명 / 렌더링 설정</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept6">
@@ -3415,7 +3424,7 @@
             <h3 class="prog-name">실내건축 자격증</h3>
             <p class="prog-desc">평면·천장·입면도·투시도 실내건축기능사/산업기사/기사 대비</p>
             <span class="prog-tag">자격증</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>단계</th><th>주요 내용</th></tr><tr><td>기능사 1</td><td>시험 이해 / CAD 세팅 / 평면·천장·입면도 기초 / 스케치업 투시도</td></tr><tr><td>기능사 2</td><td>소형 공간 실전 / 전체 주거 도면 세트 / 원룸형 집중 / 모의시험</td></tr><tr><td>산업기사 1</td><td>CAD 세팅 / 평면도 기본기 / 가구 소스 / 천장도</td></tr><tr><td>산업기사 2</td><td>입면도·단면도 / 스케치업 투시도 1·2</td></tr><tr><td>산업기사 3</td><td>종합 도면 세트 / 비정형 공간 / 실전 모의시험 × 2회</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept6">
@@ -3423,7 +3432,7 @@
             <h3 class="prog-name">전산응용건축제도기능사</h3>
             <p class="prog-desc">벽·창호 단면·입면도 CAD 작도 자격증 대비</p>
             <span class="prog-tag">자격증</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>CAD 환경설정 / 줄기초·벽·바닥 단면 작성</td></tr><tr><td>2주</td><td>천장·반자·창호 단면 요소</td></tr><tr><td>3주</td><td>문자·치수 기입 / 입면도 요소</td></tr><tr><td>4주</td><td>입면도 완성 / 출력 / 모의시험</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept6">
@@ -3431,7 +3440,7 @@
             <h3 class="prog-name">전산응용기계제도기능사</h3>
             <p class="prog-desc">기계 부품 2D·3D 모델링·배치·출력 자격증 대비</p>
             <span class="prog-tag">자격증</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1~2주</td><td>도면 틀 / 하우징·축·편심축·풀리 작도</td></tr><tr><td>3~4주</td><td>스퍼기어·스프로킷·커버 작도</td></tr><tr><td>5주</td><td>2D 출력 / 인벤터 기초 / 하우징·축 3D 모델링</td></tr><tr><td>6주</td><td>나머지 부품 3D 모델링 / 배치·출력</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept6">
@@ -3439,7 +3448,7 @@
             <h3 class="prog-name">3D프린터 운용기능사</h3>
             <p class="prog-desc">슬라이서·G-Code·기출문제 3D프린터 자격증 대비</p>
             <span class="prog-tag">자격증</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>인터페이스 / 기본 기능</td></tr><tr><td>2주</td><td>공개 문제 풀이 / STEP 파일 저장</td></tr><tr><td>3주</td><td>슬라이서(3DWOX) 사용 / G-Code 저장</td></tr><tr><td>4주</td><td>심화 기출문제 응용 실습</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept6">
@@ -3447,7 +3456,7 @@
             <h3 class="prog-name">인테리어 AI (D5 Render)</h3>
             <p class="prog-desc">D5 렌더 카메라·재질·빛·AI 기능 활용 렌더링</p>
             <span class="prog-tag">AI</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>D5 렌더 설치 및 인터페이스</td></tr><tr><td>2주</td><td>카메라·재질·빛 표현</td></tr><tr><td>3주</td><td>D5 AI 기능 학습</td></tr><tr><td>4주</td><td>AI 기능 활용 예제 제작</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept6">
@@ -3455,7 +3464,7 @@
             <h3 class="prog-name">인테리어 포트폴리오</h3>
             <p class="prog-desc">공간 컨셉·조닝·도면·3D 작업 포트폴리오 완성</p>
             <span class="prog-tag">포트폴리오</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>공간·컨셉 선정</td></tr><tr><td>2주</td><td>조닝 및 도면 구성</td></tr><tr><td>3주</td><td>도면 마무리 / 3D 작업</td></tr><tr><td>4주</td><td>3D 마무리 / 포트폴리오 페이지 구성</td></tr></table></div>
           </div>
 
@@ -3465,7 +3474,7 @@
             <h3 class="prog-name">AI 프롬프트엔지니어링 1</h3>
             <p class="prog-desc">ChatGPT·뤼튼 기초·제로샷·퓨샷·마크다운 프롬프트 실습</p>
             <span class="prog-tag">기초</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>ChatGPT·뤼튼 기초 / 프롬프트 기본 개념</td></tr><tr><td>2주</td><td>제로샷·원샷·퓨샷 프롬프트 실습</td></tr><tr><td>3주</td><td>텍스트 프롬프트 심화 / 템플릿 활용</td></tr><tr><td>4주</td><td>마크다운 활용 / 출력 최적화</td></tr></table></div>
           </div>
           <div class="prog-card hidden" data-cat="dept7">
@@ -3473,7 +3482,7 @@
             <h3 class="prog-name">AI 프롬프트엔지니어링 2</h3>
             <p class="prog-desc">Midjourney·Stable Diffusion·Sora AI 이미지·영상 생성 심화</p>
             <span class="prog-tag">심화</span>
-            <button class="prog-detail-btn" onclick="toggleDetail(this)">주차별 내용 ▼</button>
+            <button class="prog-detail-btn" onclick="openCourseModal(this)">상세 내용 보기</button>
             <div class="prog-detail"><table class="ctable"><tr><th>주차</th><th>주요 내용</th></tr><tr><td>1주</td><td>미드저니·스테이블 디퓨전 기초</td></tr><tr><td>2주</td><td>캐릭터·배경 생성 (Midjourney Describe)</td></tr><tr><td>3주</td><td>스테이블 디퓨전 LoRA·체크포인트 심화</td></tr><tr><td>4주</td><td>Sora 등 AI 영상 생성</td></tr></table></div>
           </div>
 
@@ -4356,11 +4365,21 @@
           c.classList.toggle("hidden", c.dataset.cat !== cat);
         });
       }
-      function toggleDetail(btn) {
-        const open = btn.classList.toggle("open");
-        btn.nextElementSibling.classList.toggle("open", open);
-        btn.textContent = open ? "닫기 ▲" : "주차별 내용 ▼";
+      function openCourseModal(btn) {
+        const card = btn.closest('.prog-card');
+        document.getElementById('cModalDept').textContent = card.querySelector('.prog-category').textContent;
+        document.getElementById('cModalTitle').textContent = card.querySelector('.prog-name').textContent;
+        document.getElementById('cModalBody').innerHTML = card.querySelector('.prog-detail').innerHTML;
+        document.getElementById('courseModal').classList.add('open');
+        document.body.style.overflow = 'hidden';
       }
+      function closeCourseModal() {
+        document.getElementById('courseModal').classList.remove('open');
+        document.body.style.overflow = '';
+      }
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeCourseModal();
+      });
 
       /* ── Software tabs ── */
       function showSoft(id, btn) {
@@ -4399,5 +4418,15 @@
         });
       });
     </script>
+
+  <!-- ── Course Detail Modal ── -->
+  <div class="course-modal-overlay" id="courseModal" onclick="if(event.target===this)closeCourseModal()">
+    <div class="course-modal-box">
+      <button class="course-modal-close" onclick="closeCourseModal()">✕</button>
+      <div class="course-modal-dept" id="cModalDept"></div>
+      <div class="course-modal-title" id="cModalTitle"></div>
+      <div id="cModalBody"></div>
+    </div>
+  </div>
   </body>
 </html>
