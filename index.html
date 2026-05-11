@@ -166,9 +166,21 @@
         justify-content: space-between;
         height: 68px;
       }
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
       .nav-logo img {
         height: 36px;
         display: block;
+      }
+      .nav-logo-branch {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: white;
+        letter-spacing: 0.03em;
+        white-space: nowrap;
       }
       .nav-logo-fallback {
         font-size: 1.1rem;
@@ -926,11 +938,18 @@
       }
       .seminar-thumb {
         height: 170px;
-        background: linear-gradient(135deg, #0e1120, #1a2240);
+        background: #0e1120;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 3.2rem;
+        overflow: hidden;
+      }
+      .seminar-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
       }
       .seminar-body {
         padding: 22px 20px;
@@ -1449,6 +1468,16 @@
         align-items: center;
         justify-content: center;
         overflow: hidden;
+        background: #0e1120;
+      }
+      .interview-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
       }
       .interview-initial {
         font-size: 4rem;
@@ -1641,6 +1670,7 @@
                 this.nextElementSibling.style.display = 'block';
               "
             />
+            <span class="nav-logo-branch">안산지점</span>
             <span class="nav-logo-fallback" style="display: none"
               >SBS아카데미 <span class="grad-text">안산</span></span
             >
@@ -3257,23 +3287,23 @@
         <div class="interview-grid">
           <a
             class="interview-card reveal"
-            href="https://ansan.sbsart.com/recruit/interview.asp?curPage=1&interviewType=0&sName=%EC%95%88%EC%82%B0"
+            href="https://ansan.sbsart.com/recruit/interview_view.asp?curPage=1&seq=67&hidDbType=NEW&interviewType=0&itype=SI&sName=%EC%95%88%EC%82%B0"
             target="_blank"
           >
-            <div
-              class="interview-photo"
-              style="background: linear-gradient(135deg, #1a3a6e, #2563ff)"
-            >
-              <div class="interview-initial">정</div>
+            <div class="interview-photo">
+              <img
+                src="//cdn.koreaedugroup.com/sbsfile/Board/Files/Interview/67_interviewImg.jpg"
+                alt="정O성 수강생 인터뷰"
+              />
               <div class="interview-photo-label">인터뷰 보기 →</div>
             </div>
             <div class="interview-info">
               <div class="interview-badge">인테리어디자인</div>
-              <h4 class="interview-title">디자이너로 가는 첫걸음</h4>
+              <h4 class="interview-title">공간을 완성해가는 성취감</h4>
               <p class="interview-quote">
-                전공과 전혀 다른 분야였지만 강사님이 기초부터 차근차근
-                잡아주셨어요. CAD와 스케치업을 실무 프로젝트로 배우면서 어느새
-                포트폴리오가 완성되어 있었습니다.
+                각 프로그램을 연결해 하나의 공간을 완성하는 과정이 인상
+                깊었습니다. 반복 연습으로 점점 익숙해졌고 렌더링 결과물 완성 시
+                큰 성취감을 느꼈습니다.
               </p>
               <div class="interview-name-wrap">
                 <span class="interview-name">정O성 수강생</span>
@@ -3283,25 +3313,23 @@
           </a>
           <a
             class="interview-card reveal"
-            href="https://ansan.sbsart.com/recruit/interview.asp?curPage=1&interviewType=0&sName=%EC%95%88%EC%82%B0"
+            href="https://ansan.sbsart.com/recruit/interview_view.asp?curPage=1&seq=62&hidDbType=NEW&interviewType=0&itype=SI&sName=%EC%95%88%EC%82%B0"
             target="_blank"
           >
-            <div
-              class="interview-photo"
-              style="background: linear-gradient(135deg, #0f2d5e, #00d4ff)"
-            >
-              <div class="interview-initial">손</div>
+            <div class="interview-photo">
+              <img
+                src="//cdn.koreaedugroup.com/sbsfile/Board/Files/Interview/62_interviewImg.jpg"
+                alt="손O별 수강생 인터뷰"
+              />
               <div class="interview-photo-label">인터뷰 보기 →</div>
             </div>
             <div class="interview-info">
               <div class="interview-badge">모션그래픽</div>
-              <h4 class="interview-title">
-                새로운 도전, 그리고 취업까지 이어진 나의 변화
-              </h4>
+              <h4 class="interview-title">막히면 바로 와주시는 강사님</h4>
               <p class="interview-quote">
-                완전 비전공자로 시작했는데 After Effects부터 모션 원리까지
-                체계적으로 배울 수 있었어요. 실무 중심 프로젝트 덕분에 수료 후
-                자신감이 생겼습니다.
+                수업 중 막히면 강사님들께서 바로 와주셔서 열정적으로
+                가르쳐주시는 모습이 인상깊었습니다. 온라인 자택수업도 가능해
+                정말 편리했습니다.
               </p>
               <div class="interview-name-wrap">
                 <span class="interview-name">손O별 수강생</span>
@@ -3311,23 +3339,22 @@
           </a>
           <a
             class="interview-card reveal"
-            href="https://ansan.sbsart.com/recruit/interview.asp?curPage=1&interviewType=0&sName=%EC%95%88%EC%82%B0"
+            href="https://ansan.sbsart.com/recruit/interview_view.asp?curPage=1&seq=59&hidDbType=NEW&interviewType=0&itype=SI&sName=%EC%95%88%EC%82%B0"
             target="_blank"
           >
-            <div
-              class="interview-photo"
-              style="background: linear-gradient(135deg, #1e1060, #7c3aed)"
-            >
-              <div class="interview-initial">박</div>
+            <div class="interview-photo">
+              <img
+                src="//cdn.koreaedugroup.com/sbsfile/Board/Files/Interview/59_interviewImg.jpg"
+                alt="박O호 수강생 인터뷰"
+              />
               <div class="interview-photo-label">인터뷰 보기 →</div>
             </div>
             <div class="interview-info">
               <div class="interview-badge">모션그래픽</div>
-              <h4 class="interview-title">모션그래픽으로 꿈을 그리다</h4>
+              <h4 class="interview-title">꼼꼼한 피드백으로 완성도 UP</h4>
               <p class="interview-quote">
-                처음엔 막막했는데 강사님이 1:1로 방향을 잡아주셔서 포트폴리오를
-                완성할 수 있었어요. 같은 목표를 가진 동기들과 함께하는 분위기도
-                정말 좋았습니다.
+                스스로 어렵다고 느끼는 부분까지 꼼꼼하게 피드백받았으며,
+                구체적인 조언으로 방향성과 완성도를 높일 수 있었습니다.
               </p>
               <div class="interview-name-wrap">
                 <span class="interview-name">박O호 수강생</span>
@@ -3337,84 +3364,77 @@
           </a>
           <a
             class="interview-card reveal"
-            href="https://ansan.sbsart.com/recruit/interview.asp?curPage=1&interviewType=0&sName=%EC%95%88%EC%82%B0"
+            href="https://ansan.sbsart.com/recruit/interview_view.asp?curPage=1&seq=18&hidDbType=NEW&interviewType=0&itype=SI&sName=%EC%95%88%EC%82%B0"
             target="_blank"
           >
-            <div
-              class="interview-photo"
-              style="background: linear-gradient(135deg, #0f4c3a, #10b981)"
-            >
-              <div class="interview-initial">황</div>
+            <div class="interview-photo">
+              <img
+                src="//cdn.koreaedugroup.com/sbsfile/Board/Files/Interview/18_interviewImg.jpg"
+                alt="오O빈 수강생 인터뷰"
+              />
               <div class="interview-photo-label">인터뷰 보기 →</div>
             </div>
             <div class="interview-info">
-              <div class="interview-badge">광고편집</div>
-              <h4 class="interview-title">
-                콘텐츠 기획자로의 진로 전환 이야기
-              </h4>
+              <div class="interview-badge">3D / 대학합격</div>
+              <h4 class="interview-title">청강문화산업대 합격의 비결</h4>
               <p class="interview-quote">
-                직장을 다니면서 진로 전환을 고민하다 SBS에 등록했어요.
-                포토샵·일러스트 실무 수업과 포트폴리오 완성까지 단계별로
-                이끌어주셔서 새로운 방향을 찾았습니다.
+                기초부터 꼼꼼하게 배울 수 있었습니다. 작은 기능 하나까지
+                자세히 설명해주셔서 작업에 대한 두려움이 사라지고 실력과
+                자신감을 함께 쌓을 수 있었습니다.
               </p>
               <div class="interview-name-wrap">
-                <span class="interview-name">황O주 수강생</span>
+                <span class="interview-name">오O빈 수강생</span>
                 <span class="interview-loc">안산점</span>
               </div>
             </div>
           </a>
           <a
             class="interview-card reveal"
-            href="https://ansan.sbsart.com/recruit/interview.asp?curPage=1&interviewType=0&sName=%EC%95%88%EC%82%B0"
+            href="https://ansan.sbsart.com/recruit/interview_view.asp?curPage=1&seq=26118&hidDbType=OLD&interviewType=0&itype=OI&sName=%EC%95%88%EC%82%B0"
             target="_blank"
           >
-            <div
-              class="interview-photo"
-              style="background: linear-gradient(135deg, #4c1d10, #ef4444)"
-            >
-              <div class="interview-initial">박</div>
+            <div class="interview-photo">
+              <img
+                src="https://cdn.koreaedugroup.com/sbsfile/Board/Files/L2025111217372645510.jpg"
+                alt="방O욱 수강생 인터뷰"
+              />
               <div class="interview-photo-label">인터뷰 보기 →</div>
             </div>
             <div class="interview-info">
-              <div class="interview-badge">모션그래픽</div>
-              <h4 class="interview-title">
-                막막했던 시작에서 자신 있는 결과까지
-              </h4>
+              <div class="interview-badge">인테리어디자인</div>
+              <h4 class="interview-title">인테리어의 확신을 찾다</h4>
               <p class="interview-quote">
-                아무것도 모르는 상태로 시작했는데 실무 중심 수업 덕분에
-                프로젝트를 완성하는 성취감을 느꼈어요. 강사님의 꼼꼼한 피드백이
-                가장 큰 힘이 됐습니다.
+                강의를 들으면서 내가 진짜 인테리어 일을 하고 싶다는 확신이
+                들었습니다. 공간을 어떻게 바라봐야 하는지도 배울 수 있었습니다.
               </p>
               <div class="interview-name-wrap">
-                <span class="interview-name">박O상 수강생</span>
+                <span class="interview-name">방O욱 수강생</span>
                 <span class="interview-loc">안산점</span>
               </div>
             </div>
           </a>
           <a
             class="interview-card reveal"
-            href="https://ansan.sbsart.com/recruit/interview.asp?curPage=1&interviewType=0&sName=%EC%95%88%EC%82%B0"
+            href="https://ansan.sbsart.com/recruit/interview_view.asp?curPage=1&seq=25999&hidDbType=OLD&interviewType=0&itype=OI&sName=%EC%95%88%EC%82%B0"
             target="_blank"
           >
-            <div
-              class="interview-photo"
-              style="background: linear-gradient(135deg, #1a4c3a, #059669)"
-            >
-              <div class="interview-initial">김</div>
+            <div class="interview-photo">
+              <img
+                src="https://cdn.koreaedugroup.com/sbsfile/Board/Files/L2025091508543849300.jpg"
+                alt="임O호 수강생 인터뷰"
+              />
               <div class="interview-photo-label">인터뷰 보기 →</div>
             </div>
             <div class="interview-info">
               <div class="interview-badge">모션그래픽</div>
-              <h4 class="interview-title">
-                실무 중심 수업으로 준비한 취업의 첫 관문
-              </h4>
+              <h4 class="interview-title">열정 넘치는 강사진과 함께</h4>
               <p class="interview-quote">
-                이론보다 직접 만들어보는 수업 방식이 저에게 딱 맞았어요.
-                강사님이 현업 노하우를 아낌없이 나눠주셔서 수업이 끝나도 계속
-                뭔가 만들고 싶어집니다.
+                강사님들이 열정이 넘치시고 인간적으로 다가와주셔서 더욱 열심히
+                임할 수 있었습니다. 멘토/멘티 시스템 덕분에 일정 관리도
+                잘 됐습니다.
               </p>
               <div class="interview-name-wrap">
-                <span class="interview-name">김O군 수강생</span>
+                <span class="interview-name">임O호 수강생</span>
                 <span class="interview-loc">안산점</span>
               </div>
             </div>
@@ -3442,94 +3462,132 @@
             진행합니다.
           </p>
         </div>
-        <div class="seminar-grid" style="grid-template-columns: repeat(4, 1fr)">
-          <div class="seminar-card reveal">
-            <div class="seminar-thumb" style="font-size: 2.4rem">🤖</div>
-            <div class="seminar-body">
-              <div class="seminar-date">AI 특강</div>
-              <h3 class="seminar-title">AI Studio(Gemini) 세미나</h3>
-              <p class="seminar-desc">
-                Google AI Studio와 Gemini를 활용한 디자인·콘텐츠 제작 실무
-                워크샵
-              </p>
+        <div class="seminar-grid" style="grid-template-columns: repeat(3, 1fr)">
+          <a
+            class="seminar-card reveal"
+            href="https://ansan.sbsart.com/community/seminar_view.asp?curPage=1&seq=71&hidDbType=NEW&category=0&placeSeq=59&sName="
+            target="_blank"
+            style="text-decoration: none; color: inherit; display: block"
+          >
+            <div class="seminar-thumb">
+              <img
+                src="//cdn.koreaedugroup.com/sbsfile/board/files/Seminar/02a6bd7843210002432143210fedcba9.jpg"
+                alt="ACP 자격증 세미나"
+              />
             </div>
-          </div>
-          <div class="seminar-card reveal">
-            <div class="seminar-thumb" style="font-size: 2.4rem">📹</div>
             <div class="seminar-body">
-              <div class="seminar-date">영상 특강</div>
-              <h3 class="seminar-title">유튜브 크리에이터 세미나</h3>
-              <p class="seminar-desc">
-                기획부터 편집·채널 운영까지 유튜브 크리에이터로 성장하는 실전
-                노하우
-              </p>
-            </div>
-          </div>
-          <div class="seminar-card reveal">
-            <div class="seminar-thumb" style="font-size: 2.4rem">🎭</div>
-            <div class="seminar-body">
-              <div class="seminar-date">3D 특강</div>
-              <h3 class="seminar-title">지브러쉬 디테일이 살아나는 노하우</h3>
-              <p class="seminar-desc">
-                ZBrush 현업 아티스트가 직접 전하는 디테일 조각 기법과 실무
-                워크플로우
-              </p>
-            </div>
-          </div>
-          <div class="seminar-card reveal">
-            <div class="seminar-thumb" style="font-size: 2.4rem">😊</div>
-            <div class="seminar-body">
-              <div class="seminar-date">디자인 특강</div>
-              <h3 class="seminar-title">이모티콘 제작 세미나</h3>
-              <p class="seminar-desc">
-                카카오·라인 이모티콘 제작 과정과 승인 전략까지 현업 작가의
-                노하우 공개
-              </p>
-            </div>
-          </div>
-          <div class="seminar-card reveal">
-            <div class="seminar-thumb" style="font-size: 2.4rem">🎬</div>
-            <div class="seminar-body">
-              <div class="seminar-date">영상 특강</div>
-              <h3 class="seminar-title">스토리보드 제작 세미나</h3>
-              <p class="seminar-desc">
-                광고·애니메이션·영상 제작 현장에서 사용하는 스토리보드 기획 및
-                작성 실습
-              </p>
-            </div>
-          </div>
-          <div class="seminar-card reveal">
-            <div class="seminar-thumb" style="font-size: 2.4rem">📜</div>
-            <div class="seminar-body">
-              <div class="seminar-date">자격증 특강</div>
+              <div class="seminar-date">2026-04-28 · 자격증 특강</div>
               <h3 class="seminar-title">ACP 자격증 세미나</h3>
               <p class="seminar-desc">
                 Adobe Certified Professional 자격증 취득 전략과 실전 문제 풀이
                 집중 특강
               </p>
             </div>
-          </div>
-          <div class="seminar-card reveal">
-            <div class="seminar-thumb" style="font-size: 2.4rem">🖨️</div>
+          </a>
+          <a
+            class="seminar-card reveal"
+            href="https://ansan.sbsart.com/community/seminar_view.asp?curPage=1&seq=66&hidDbType=NEW&category=0&placeSeq=59&sName="
+            target="_blank"
+            style="text-decoration: none; color: inherit; display: block"
+          >
+            <div class="seminar-thumb">
+              <img
+                src="//cdn.koreaedugroup.com/sbsfile/board/files/Seminar/01edf334876500028765876543210fed.jpg"
+                alt="3D프린터운용기능사 세미나"
+              />
+            </div>
             <div class="seminar-body">
-              <div class="seminar-date">자격증 특강</div>
+              <div class="seminar-date">2026-04-27 · 자격증 특강</div>
               <h3 class="seminar-title">3D프린터운용기능사 세미나</h3>
               <p class="seminar-desc">
                 3D 프린터 운용기능사 자격증 취득을 위한 이론 및 실기 집중 특강
               </p>
             </div>
-          </div>
-          <div class="seminar-card reveal">
-            <div class="seminar-thumb" style="font-size: 2.4rem">💻</div>
+          </a>
+          <a
+            class="seminar-card reveal"
+            href="https://ansan.sbsart.com/community/seminar_view.asp?curPage=1&seq=59&hidDbType=NEW&category=0&placeSeq=59&sName="
+            target="_blank"
+            style="text-decoration: none; color: inherit; display: block"
+          >
+            <div class="seminar-thumb">
+              <img
+                src="//cdn.koreaedugroup.com/sbsfile/board/files/Seminar/0419612843210002432143210fedcba9.jpg"
+                alt="AI Studio(Gemini) 세미나"
+              />
+            </div>
             <div class="seminar-body">
-              <div class="seminar-date">자격증 특강</div>
-              <h3 class="seminar-title">CAT 자격증 세미나</h3>
+              <div class="seminar-date">2026-04-02 · AI 특강</div>
+              <h3 class="seminar-title">AI Studio(Gemini) 세미나</h3>
               <p class="seminar-desc">
-                컴퓨터그래픽스운용기능사(CAT) 취득을 위한 단기 집중 이론·실기
-                특강
+                Google AI Studio와 Gemini를 활용한 디자인·콘텐츠 제작 실무
+                워크샵
               </p>
             </div>
-          </div>
+          </a>
+          <a
+            class="seminar-card reveal"
+            href="https://ansan.sbsart.com/community/seminar_view.asp?curPage=1&seq=52&hidDbType=NEW&category=0&placeSeq=59&sName="
+            target="_blank"
+            style="text-decoration: none; color: inherit; display: block"
+          >
+            <div class="seminar-thumb">
+              <img
+                src="//cdn.koreaedugroup.com/sbsfile/board/files/Seminar/0317fb60cba90002cba9cba987654321.jpg"
+                alt="유튜브 크리에이터 세미나"
+              />
+            </div>
+            <div class="seminar-body">
+              <div class="seminar-date">2026-04-02 · 영상 특강</div>
+              <h3 class="seminar-title">유튜브 크리에이터 세미나</h3>
+              <p class="seminar-desc">
+                기획부터 편집·채널 운영까지 유튜브 크리에이터로 성장하는 실전
+                노하우
+              </p>
+            </div>
+          </a>
+          <a
+            class="seminar-card reveal"
+            href="https://ansan.sbsart.com/community/seminar_view.asp?curPage=1&seq=57&hidDbType=NEW&category=0&placeSeq=59&sName="
+            target="_blank"
+            style="text-decoration: none; color: inherit; display: block"
+          >
+            <div class="seminar-thumb">
+              <img
+                src="//cdn.koreaedugroup.com/sbsfile/board/files/Seminar/039cfc1c0fed00020fed0fedcba98765.jpg"
+                alt="지브러쉬 세미나"
+              />
+            </div>
+            <div class="seminar-body">
+              <div class="seminar-date">2026-03-26 · 3D 특강</div>
+              <h3 class="seminar-title">지브러쉬 디테일이 살아나는 노하우</h3>
+              <p class="seminar-desc">
+                ZBrush 현업 아티스트가 직접 전하는 디테일 조각 기법과 실무
+                워크플로우
+              </p>
+            </div>
+          </a>
+          <a
+            class="seminar-card reveal"
+            href="https://ansan.sbsart.com/community/seminar_view.asp?curPage=1&seq=53&hidDbType=NEW&category=0&placeSeq=59&sName="
+            target="_blank"
+            style="text-decoration: none; color: inherit; display: block"
+          >
+            <div class="seminar-thumb">
+              <img
+                src="//cdn.koreaedugroup.com/sbsfile/board/files/Seminar/03acf16843210002432143210fedcba9.jpg"
+                alt="이모티콘 제작 세미나"
+              />
+            </div>
+            <div class="seminar-body">
+              <div class="seminar-date">2026-03-05 · 디자인 특강</div>
+              <h3 class="seminar-title">이모티콘 제작 세미나</h3>
+              <p class="seminar-desc">
+                카카오·라인 이모티콘 제작 과정과 승인 전략까지 현업 작가의
+                노하우 공개
+              </p>
+            </div>
+          </a>
         </div>
         <div style="text-align: center; margin-top: 36px">
           <a
@@ -3630,23 +3688,11 @@
             </div>
           </div>
           <div>
-            <div class="loc-image reveal">
-              <img
-                src="https://chocopieeeee.github.io/sbsansan/2022/img/location/location_as.jpg"
-                alt="SBS아카데미 안산점 위치"
-                onerror="
-                  this.src = '';
-                  this.parentElement.style.background = 'var(--card)';
-                  this.parentElement.style.minHeight = '200px';
-                "
-              />
-            </div>
-            <div class="loc-map reveal">
+            <div class="loc-map reveal" style="margin-top: 0; height: 450px">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d791.0!2d126.8265!3d37.3206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z6rK96riw64-Z7JWZ7Iuc64Ko642U7J2A6rWQ!5e0!3m2!1sko!2skr!4v1"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3173.074693988945!2d126.83734037631434!3d37.31705833839352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b6f626c505d71%3A0x4316016e429df998!2zU0JT7JWE7Lm0642w66-46rKM7J6EJuybue2IsO2VmeybkCDslYjsgrDsoJA!5e0!3m2!1sko!2sus!4v1778509298534!5m2!1sko!2sus"
                 allowfullscreen=""
                 loading="lazy"
-                title="SBS아카데미 안산점 지도"
                 referrerpolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>

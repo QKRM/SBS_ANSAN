@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:ansan.sbsart.com)",
+      "WebFetch(domain:www.sbsart.com)"
+    ]
+  }
+}
