@@ -267,105 +267,108 @@
         border-bottom: 1px solid var(--border);
       }
 
-      /* ── BANNER SLIDER ── */
-      #banner {
+      /* ── VIDEO HERO ── */
+      #hero {
         position: relative;
-        overflow: hidden;
-        background: #000;
-        margin-top: 68px;
-      }
-      .slider-track {
-        display: flex;
-        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        will-change: transform;
-      }
-      .slide {
-        min-width: 100%;
-        position: relative;
-      }
-      .slide {
-        background: #000;
-        text-align: center;
-      }
-      .slide img {
         width: 100%;
-        height: auto;
-        max-height: 600px;
-        object-fit: contain;
+        height: 100vh;
+        min-height: 620px;
+        overflow: hidden;
+        margin-top: 68px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      #hero-video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+      }
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.25) 0%,
+          rgba(0, 0, 0, 0.4) 55%,
+          rgba(0, 0, 0, 0.72) 100%
+        );
+        z-index: 1;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding: 0 24px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .hero-en {
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        color: rgba(255, 255, 255, 0.75);
+        margin-bottom: 22px;
+        text-transform: uppercase;
+      }
+      .hero-main {
+        font-size: clamp(2.8rem, 7vw, 5.5rem);
+        font-weight: 900;
+        line-height: 1.12;
+        color: #fff;
+        margin-bottom: 24px;
+      }
+      .hero-sub {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.85;
+      }
+      .hero-stats-wrap {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        padding: 0 24px 52px;
+        display: flex;
+        justify-content: center;
+      }
+      .hero-stats {
+        background: rgba(8, 10, 20, 0.72);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        width: 100%;
+        max-width: 760px;
+        overflow: hidden;
+      }
+      .hero-stat {
+        flex: 1;
+        padding: 26px 20px;
+        text-align: center;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .hero-stat:last-child {
+        border-right: none;
+      }
+      .hero-stat-num {
         display: block;
-        margin: 0 auto;
-      }
-      .slider-dots {
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        gap: 8px;
-        z-index: 10;
-      }
-      .dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.4);
-        cursor: pointer;
-        transition: 0.3s;
-        border: none;
-      }
-      .dot.active {
-        background: #fff;
-        width: 24px;
-        border-radius: 4px;
-      }
-      .slider-prev,
-      .slider-next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(0, 0, 0, 0.4);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        font-size: clamp(1.6rem, 3vw, 2.1rem);
+        font-weight: 900;
         color: #fff;
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        z-index: 10;
-        font-size: 1.1rem;
-        transition: 0.2s;
-        backdrop-filter: blur(8px);
+        margin-bottom: 6px;
       }
-      .slider-prev {
-        left: 20px;
-      }
-      .slider-next {
-        right: 20px;
-      }
-      .slider-prev:hover,
-      .slider-next:hover {
-        background: var(--blue);
-        border-color: var(--blue);
-      }
-      .slider-pause {
-        position: absolute;
-        bottom: 20px;
-        right: 20px;
-        background: rgba(0, 0, 0, 0.4);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        color: #fff;
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        z-index: 10;
-        font-size: 0.75rem;
-        backdrop-filter: blur(8px);
+      .hero-stat-label {
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.55);
+        font-weight: 500;
       }
 
       /* ── QUICK MENU ── */
@@ -1320,36 +1323,6 @@
         color: #191919;
       }
 
-      /* ── HERO TEXT ── */
-      #hero-text {
-        padding: 60px 0 50px;
-        background:
-          radial-gradient(
-            ellipse 70% 60% at 50% 0%,
-            rgba(37, 99, 255, 0.1) 0%,
-            transparent 70%
-          ),
-          var(--bg);
-        text-align: center;
-      }
-      .hero-text-en {
-        font-size: 0.78rem;
-        font-weight: 700;
-        letter-spacing: 0.2em;
-        color: var(--cyan);
-        margin-bottom: 16px;
-      }
-      .hero-text-main {
-        font-size: clamp(2.4rem, 6vw, 4.5rem);
-        font-weight: 900;
-        line-height: 1.12;
-        margin-bottom: 20px;
-      }
-      .hero-text-sub {
-        font-size: 1rem;
-        color: var(--gray);
-        line-height: 1.8;
-      }
 
       /* ── REASON (선택하는 이유) ── */
       .reason-block {
@@ -1780,8 +1753,20 @@
         .hamburger {
           display: flex;
         }
-        .slide img {
-          height: 320px;
+        #hero {
+          min-height: 100svh;
+        }
+        .hero-stats {
+          flex-direction: column;
+          border-radius: 14px;
+        }
+        .hero-stat {
+          border-right: none;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          padding: 18px 20px;
+        }
+        .hero-stat:last-child {
+          border-bottom: none;
         }
         .quick-grid {
           grid-template-columns: repeat(3, 1fr);
@@ -1934,69 +1919,37 @@
       </div>
     </header>
 
-    <!-- ════════════════════════════════ BANNER ════════════════════════════════ -->
+    <!-- ════════════════════════════════ VIDEO HERO ════════════════════════════ -->
     <div id="top"></div>
-    <section id="banner" style="margin-top: 68px">
-      <div style="position: relative; overflow: hidden">
-        <div class="slider-track" id="sliderTrack">
-          <div class="slide">
-            <img
-              src="https://chocopieeeee.github.io/sbsansan/2022/img/banner/m/260504_banner_mo.jpg"
-              alt="배너1"
-            />
-          </div>
-
-          <div class="slide">
-            <img
-              src="https://chocopieeeee.github.io/sbsansan/2022/img/banner/com_m_claude_banner.jpg"
-              alt="배너3"
-            />
-          </div>
-          <div class="slide">
-            <img
-              src="https://chocopieeeee.github.io/sbsansan/2022/img/banner/260324_aidigital_banner_mo.jpg"
-              alt="배너4"
-            />
-          </div>
-          <div class="slide">
-            <img
-              src="https://chocopieeeee.github.io/sbsansan/2022/img/banner/260323_banner_mo.jpg"
-              alt="배너5"
-            />
-          </div>
-          <div class="slide">
-            <img
-              src="https://chocopieeeee.github.io/sbsansan/2022/img/banner/m/260409_banner_mo.jpg"
-              alt="배너6"
-            />
-          </div>
-        </div>
-        <button class="slider-prev" onclick="slideMove(-1)">&#8249;</button>
-        <button class="slider-next" onclick="slideMove(1)">&#8250;</button>
-        <div class="slider-dots" id="sliderDots"></div>
-        <button
-          class="slider-pause"
-          id="sliderPause"
-          onclick="toggleSlider()"
-          title="일시정지"
-        >
-          ⏸
-        </button>
+    <section id="hero">
+      <video id="hero-video" autoplay muted loop playsinline>
+        <source src="https://www.pexels.com/download/video/9686493/" type="video/mp4" />
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-en">CREATIVE POWER THAT MOVES REALITY</p>
+        <h1 class="hero-main">
+          현실을 움직이는<br /><span class="grad-text">창조의 힘</span>
+        </h1>
+        <p class="hero-sub">
+          작은 아이디어도 몰입과 기술이 만나면 세상이 바뀝니다.<br />SBS아카데미에서
+          당신의 아이디어를 현실로 만들어 보세요.
+        </p>
       </div>
-    </section>
-
-    <!-- ════════════════════════════════ HERO TEXT ════════════════════════════ -->
-    <section id="hero-text">
-      <div class="container">
-        <div class="hero-text-wrap reveal">
-          <p class="hero-text-en">CREATIVE POWER THAT MOVES REALITY</p>
-          <h2 class="hero-text-main">
-            현실을 움직이는<br /><span class="grad-text">창조의 힘</span>
-          </h2>
-          <p class="hero-text-sub">
-            작은 아이디어도 몰입과 기술이 만나면 세상이 바뀝니다.<br />SBS아카데미에서
-            당신의 아이디어를 현실로 만들어 보세요.
-          </p>
+      <div class="hero-stats-wrap">
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-num">700,000+</span>
+            <span class="hero-stat-label">누적 수강생</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-num">90,000+</span>
+            <span class="hero-stat-label">누적 후기</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-num">500+</span>
+            <span class="hero-stat-label">MOU 협약기업</span>
+          </div>
         </div>
       </div>
     </section>
@@ -6035,49 +5988,6 @@
           m.classList.remove("open");
       });
 
-      /* ── Banner slider ── */
-      let current = 0,
-        total = 0,
-        sliderTimer = null,
-        isPlaying = true;
-      function initSlider() {
-        const slides = document.querySelectorAll(".slide");
-        total = slides.length;
-        const dotsEl = document.getElementById("sliderDots");
-        for (let i = 0; i < total; i++) {
-          const d = document.createElement("button");
-          d.className = "dot" + (i === 0 ? " active" : "");
-          d.onclick = () => goTo(i);
-          dotsEl.appendChild(d);
-        }
-        startSlider();
-      }
-      function goTo(n) {
-        current = (n + total) % total;
-        document.getElementById("sliderTrack").style.transform =
-          `translateX(-${current * 100}%)`;
-        document
-          .querySelectorAll(".dot")
-          .forEach((d, i) => d.classList.toggle("active", i === current));
-      }
-      function slideMove(dir) {
-        goTo(current + dir);
-      }
-      function startSlider() {
-        sliderTimer = setInterval(() => goTo(current + 1), 4000);
-      }
-      function toggleSlider() {
-        const btn = document.getElementById("sliderPause");
-        if (isPlaying) {
-          clearInterval(sliderTimer);
-          btn.textContent = "▶";
-        } else {
-          startSlider();
-          btn.textContent = "⏸";
-        }
-        isPlaying = !isPlaying;
-      }
-      initSlider();
 
       /* ── Scroll reveal ── */
       const io = new IntersectionObserver(
